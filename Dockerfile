@@ -1,4 +1,4 @@
-FROM weblate/weblate:5.6
+FROM weblate/weblate:5.9.2
 
 EXPOSE 8080
 
