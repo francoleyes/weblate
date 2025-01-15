@@ -1,4 +1,4 @@
-FROM weblate/weblate:5.9.2
+FROM weblate/weblate:latest
 
 EXPOSE 8080
 
