@@ -26,3 +26,17 @@ services:
       - ./data/redis:/data
     healthcheck:
       test: ["CMD-SHELL", "redis-cli ping | grep PONG"]
+  db:
+    image: postgres:14
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: weblate
+      POSTGRES_PASSWORD: weblatepassword
+      POSTGRES_DB: weblate
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U weblate"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
